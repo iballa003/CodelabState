@@ -5,12 +5,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 
 @Composable
 fun WaterCounter(){
-    var waterCounter by remember { mutableStateOf(0) }
-    var showTask by remember { mutableStateOf(true) }
+    var waterCounter by rememberSaveable { mutableStateOf(0) }
+    var showTask by rememberSaveable { mutableStateOf(true) }
     Column {
         if (waterCounter > 0){
             if (showTask){
@@ -30,5 +31,6 @@ fun WaterCounter(){
             Text(text = "Resetear contador")
         }
     }
+    WellnessTaskList()
 
 }
